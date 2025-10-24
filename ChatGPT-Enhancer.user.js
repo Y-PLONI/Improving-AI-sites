@@ -6,6 +6,7 @@
 // @author       Y-PLONI
 // @match        *://chatgpt.com/*
 // @match        *://chat.openai.com/*
+// @icon         https://www.google.com/s2/favicons?sz=64&domain=chatgpt.com
 // @grant        GM_addStyle
 // @grant        GM_setValue
 // @grant        GM_getValue
@@ -16,6 +17,7 @@
 // @run-at       document-idle
 // @require      https://code.jquery.com/jquery-3.7.1.min.js
 // @downloadURL  https://github.com/Y-PLONI/Improving-AI-sites/raw/main/ChatGPT-Enhancer.user.js
+// @updateURL    https://github.com/Y-PLONI/Improving-AI-sites/raw/main/ChatGPT-Enhancer.user.js
 // ==/UserScript==
 
 (function() {
