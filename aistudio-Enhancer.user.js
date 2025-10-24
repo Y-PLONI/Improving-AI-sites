@@ -11,6 +11,7 @@
 // @grant        GM_registerMenuCommand
 // @run-at       document-idle
 // @downloadURL  https://github.com/Y-PLONI/Improving-AI-sites/raw/main/aistudio-Enhancer.user.js
+// @updateURL  https://github.com/Y-PLONI/Improving-AI-sites/raw/main/aistudio-Enhancer.user.js
 // ==/UserScript==
 
 (() => {
