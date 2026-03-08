@@ -273,18 +273,24 @@
       const MENU_TOGGLE_BUTTON_ID = 'ais-toggle-conversation-menu';
       const ACTIONS_MENU_ID = 'ais-conversation-actions-menu';
       const SAVE_BUTTON_ID = 'ais-save-conversation-button';
+      const ACTIONS_TOOLBAR_ATTR = 'data-ais-toolbar-mounted';
 
       function injectCopyButtonStyles() {
         const styleId = 'ais-copy-conversation-style';
         if (document.getElementById(styleId)) return;
         const css = `
           #${ACTIONS_CONTAINER_ID} {
+            display: inline-flex;
+            align-items: stretch;
+            position: relative;
+            direction: ltr;
+            gap: 0;
+          }
+          #${ACTIONS_CONTAINER_ID}[data-placement="floating"] {
             position: fixed;
             top: 84px;
             right: 16px;
             z-index: 10001;
-            display: inline-flex;
-            align-items: stretch;
           }
           #${COPY_BUTTON_ID}, #${MENU_TOGGLE_BUTTON_ID} {
             height: 36px;
@@ -296,6 +302,10 @@
             line-height: 1;
             cursor: pointer;
             box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+          }
+          #${ACTIONS_CONTAINER_ID}[data-placement="toolbar"] #${COPY_BUTTON_ID},
+          #${ACTIONS_CONTAINER_ID}[data-placement="toolbar"] #${MENU_TOGGLE_BUTTON_ID} {
+            box-shadow: none;
           }
           #${COPY_BUTTON_ID} {
             min-width: 44px;
@@ -359,6 +369,57 @@
         style.id = styleId;
         style.textContent = css;
         document.head.appendChild(style);
+      }
+
+      function findActionsAnchor() {
+        const selectors = [
+          'ms-chat-header [role="toolbar"]',
+          'ms-chat-header .actions',
+          'ms-chat-header .buttons',
+          'ms-chat-app header [role="toolbar"]',
+          'ms-chat-app header .actions',
+          'header [aria-label*="action" i]',
+          'header [class*="action"]',
+          'header [class*="button"]'
+        ];
+
+        for (const selector of selectors) {
+          const candidates = Array.from(document.querySelectorAll(selector));
+          const match = candidates.find((element) => {
+            if (!(element instanceof HTMLElement)) return false;
+            const rect = element.getBoundingClientRect();
+            return rect.width > 80 && rect.height > 24;
+          });
+          if (match) return match;
+        }
+
+        const actionButton = Array.from(document.querySelectorAll('button, [role="button"]')).find((element) => {
+          const label = `${element.getAttribute('aria-label') || ''} ${element.getAttribute('title') || ''} ${element.textContent || ''}`.trim();
+          return /more actions|view more actions|actions/i.test(label);
+        });
+
+        if (actionButton && actionButton.parentElement instanceof HTMLElement) {
+          return actionButton.parentElement;
+        }
+
+        return null;
+      }
+
+      function syncContainerPlacement(container) {
+        const anchor = findActionsAnchor();
+        if (anchor) {
+          if (container.parentElement !== anchor) {
+            anchor.prepend(container);
+          }
+          container.setAttribute('data-placement', 'toolbar');
+          anchor.setAttribute(ACTIONS_TOOLBAR_ATTR, 'true');
+          return;
+        }
+
+        if (container.parentElement !== document.body) {
+          document.body.appendChild(container);
+        }
+        container.setAttribute('data-placement', 'floating');
       }
 
       const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
@@ -664,8 +725,8 @@
         if (!container) {
           container = document.createElement('div');
           container.id = ACTIONS_CONTAINER_ID;
-          document.body.appendChild(container);
         }
+        syncContainerPlacement(container);
         ensureActionButton(container, COPY_BUTTON_ID, '📋', 'העתק את כל השיחה', 'Copy full conversation', copyConversation);
         ensureActionButton(container, MENU_TOGGLE_BUTTON_ID, '▾', 'אפשרויות נוספות', 'Conversation export options', (event) => {
           event.preventDefault();
