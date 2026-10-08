@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         כלי עזר משולבים וסרגל צד ל-ChatGPT.com
 // @namespace    http://tampermonkey.net/
-// @version      3.3.01
+// @version      3.3.02
 // @description  משלב עיצוב בועות, RTL, העתקה, שמירה לקובץ, הסתרת "תוכניות", וסרגל צד Timeline דינמי מרובה עמודות, עם התאמה אישית, אופטימיזציות, ותמיכה במצב כהה. תיקונים לטבלאות ורשימות. (אופטימיזציות CPU/RAM + תיקון הסתרת תוכניות למשתמש חינמי)
 // @author       Y-PLONI
 // @match        *://chatgpt.com/*
@@ -18,6 +18,7 @@
 // @require      https://code.jquery.com/jquery-3.7.1.min.js
 // @downloadURL  https://github.com/Y-PLONI/Improving-AI-sites/raw/main/ChatGPT-Enhancer.user.js
 // @updateURL    https://github.com/Y-PLONI/Improving-AI-sites/raw/main/ChatGPT-Enhancer.user.js
+// @icon         https://www.google.com/s2/favicons?sz=64&domain=chatgpt.com
 // ==/UserScript==
 
 (function() {

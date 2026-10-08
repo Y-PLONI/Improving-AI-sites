@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         כלי עזר משולבים וסרגל צד ל-Claude.ai
 // @namespace    http://tampermonkey.net/
-// @version      1.0.0
+// @version      1.0.1
 // @description  משלב עיצוב בועות, RTL, העתקה, שמירה לקובץ, וסרגל צד Timeline דינמי מרובה עמודות, עם התאמה אישית, אופטימיזציות, ותמיכה במצב כהה - ל-Claude.ai
 // @author       Y-PLONI
 // @match        *://claude.ai/*
@@ -17,6 +17,7 @@
 // @require      https://code.jquery.com/jquery-3.7.1.min.js
 // @downloadURL  https://github.com/Y-PLONI/Improving-AI-sites/raw/main/Claude-Enhancer.user.js
 // @updateURL    https://github.com/Y-PLONI/Improving-AI-sites/raw/main/Claude-Enhancer.user.js
+// @icon         https://www.google.com/s2/favicons?sz=64&domain=claude.ai
 // ==/UserScript==
 
 (function() {

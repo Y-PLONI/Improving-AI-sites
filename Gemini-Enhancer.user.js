@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Gemini – משופר
 // @namespace    https://example.com/
-// @version      1.0.2
+// @version      1.0.3
 // @description  סרגל ניווט לשיחה, RTL משופר, בועות שיחה, ייצוא שיחה והתראות על תשובות חדשות ב-Gemini.
 // @author       Y-PLONI
 // @match        https://gemini.google.com/*
@@ -13,6 +13,7 @@
 // @run-at       document-idle
 // @downloadURL  https://github.com/Y-PLONI/Improving-AI-sites/raw/main/Gemini-Enhancer.user.js
 // @updateURL    https://github.com/Y-PLONI/Improving-AI-sites/raw/main/Gemini-Enhancer.user.js
+// @icon         https://www.google.com/s2/favicons?sz=64&domain=gemini.google.com
 // ==/UserScript==
 
 (() => {
