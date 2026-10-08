@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         AI Studio – משופר
 // @namespace    https://example.com/
-// @version      1.9.3
+// @version      1.9.2
 // @description  פותח היסטוריה אוטומטית, סרגל-צד משופר, תיקוני RTL, בועות צבע, הפעלה אוטומטית של כלים ב”שיחה חדשה”, שמירה לקובץ, שמירה אוטומטית של השיחה והתראות קוליות וחזותיות על הודעות AI חדשות.
 // @author       Y-PLONI
 // @match        https://aistudio.google.com/*
