@@ -12,9 +12,8 @@
 // @grant        GM_registerMenuCommand
 // @run-at       document-idle
 // @downloadURL  https://github.com/Y-PLONI/Improving-AI-sites/raw/main/aistudio-Enhancer.user.js
-// @updateURL    https://github.com/Y-PLONI/Improving-AI-sites/raw/main/aistudio-Enhancer.user.js
+// @updateURL  https://github.com/Y-PLONI/Improving-AI-sites/raw/main/aistudio-Enhancer.user.js
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=aistudio.google.com
-
 // ==/UserScript==
 
 (() => {
